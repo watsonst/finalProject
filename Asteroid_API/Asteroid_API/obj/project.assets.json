@@ -8474,19 +8474,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\seanf\\.nuget\\packages\\": {}
+    "C:\\Users\\me\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\seanf\\source\\repos\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
+      "projectUniqueName": "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
       "projectName": "Asteroid_API",
-      "projectPath": "C:\\Users\\seanf\\source\\repos\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
-      "packagesPath": "C:\\Users\\seanf\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\seanf\\source\\repos\\Asteroid_API\\Asteroid_API\\obj\\",
+      "projectPath": "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
+      "packagesPath": "C:\\Users\\me\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\seanf\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\me\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -8494,7 +8494,8 @@
       ],
       "sources": {
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "https://api.nuget.org/v3/index.json": {}
+        "https://api.nuget.org/v3/index.json": {},
+        "https://nuget.pkg.github.com/watsonst/index.json": {}
       },
       "frameworks": {
         "netcoreapp3.1": {
@@ -8545,7 +8546,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.401\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }
