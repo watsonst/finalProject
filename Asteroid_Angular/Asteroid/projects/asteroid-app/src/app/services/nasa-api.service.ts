@@ -14,8 +14,8 @@ export class NASAApiService {
   ) { }
 
 
-  getAsteroids(): Observable<Asteroids[]>{
-      return this.httpClient.get<Asteroids[]>("https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-01-18&end_date=2022-01-18&api_key=DEMO_KEY")
+  getAsteroids(): Observable<any>{
+      return this.httpClient.get<any>("https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-01-18&end_date=2022-01-18&api_key=DEMO_KEY")
   }
 
 }
