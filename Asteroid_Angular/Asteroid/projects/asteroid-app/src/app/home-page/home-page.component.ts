@@ -5,6 +5,8 @@ import { Asteroids } from '../Models/Asteroids';
 import { QuotesApiService } from '../services/quotes-api.service';
 import { Quotes } from '../Models/Quotes';
 import { Quote, templateJitUrl } from '@angular/compiler';
+import { FanFavorites } from '../Models/FanFavorites';
+import { FanFavoritesService } from '../services/fan-favorites.service';
 
 
 @Component({
@@ -18,13 +20,25 @@ export class HomePageComponent implements OnInit {
   input: Number = 0
   tempQuote: Quotes
   quotesList: Quotes[] = []
+  singlequote: Quotes
+
+  percentage: Number = 0
+  quote: String = ""
+  recommendation = ""
+
+  dateYYYY: Number = 0
+  dateMM: Number = 0
+  dateDD: Number = 0
+  counter: Number = 0
+
   
 
   constructor(
     private httpClient: HttpClient,
     private NASAAPISvc: NASAApiService,
-    private quotesAPISvc: QuotesApiService
-  ) {this.tempQuote = new Quotes(0,"","");}
+    private quotesAPISvc: QuotesApiService,
+    private favoritesAPISvc: FanFavoritesService
+  ) {this.tempQuote = new Quotes(0,"",""), this.singlequote = new Quotes(0, "", "");}
 
   ngOnInit(): void {
     //this.getMiles();
@@ -97,6 +111,7 @@ export class HomePageComponent implements OnInit {
 
   calculateChance(input: Number, apiservice: QuotesApiService){
     let tempQuote = new Quotes(0,"","");
+    
 
     console.log(input)
     console.log(tempQuote)
@@ -128,22 +143,37 @@ export class HomePageComponent implements OnInit {
 
     apiservice.getQuotes().subscribe((Quotes) => {
       let singlequote = Quotes.find(q => q.percentage === tempQuote.percentage)
-      console.log(singlequote)
-      console.log(Quotes)})
+      if (singlequote != null){
+        console.log(singlequote.percentage)
+        console.log(singlequote.quote)
+        console.log(singlequote.recommendation)
+      }
+      })
+      
+      
+      
+      
+      // let percentage = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.percentage)
+      // let quote = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.quote)
+      // let recommendation = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.recommendation)
+      // this.percentage = this.percentage
+      // this.quote = this.quote
+      // this.recommendation = this.recommendation
+      // console.log(percentage)
+      // console.log(quote)
+      // console.log(recommendation)})
 
+   
  
-//  percentageMatch(){
-//  let percentage = 10;
-//  // for (let i = 0; i<this.quotesList.length; i++){
-//   let singlequote = this.quotesList.find(q => q.percentage === percentage)
-//   console.log(singlequote)
-
-  
-
-//  }
+      // addtofavorites(){
+      //   let favorite = new FanFavorites(id, percentage, date, counter)
+      //   this.favoritesAPISvc.createFavorite(favorite).subscribe((favorite) =>{
+      //     console.log(["STUFF"])
+      //     console.log(favorite)
+      //   })
+      // }
 
 
   
   }
 }
-
