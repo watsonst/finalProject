@@ -5,6 +5,8 @@ import { Asteroids } from '../Models/Asteroids';
 import { QuotesApiService } from '../services/quotes-api.service';
 import { Quotes } from '../Models/Quotes';
 import { Quote, templateJitUrl } from '@angular/compiler';
+import { FanFavorites } from '../Models/FanFavorites';
+import { FanFavoritesService } from '../services/fan-favorites.service';
 
 
 @Component({
@@ -17,22 +19,39 @@ export class HomePageComponent implements OnInit {
   asteroids: any
   input: Number = 0
   tempQuote: Quotes
+  quotesList: Quotes[] = []
+  singlequote: Quotes
+
+  percentage: Number = 0
+  quote: String = ""
+  recommendation = ""
+
+  dateYYYY: Number = 0
+  dateMM: Number = 0
+  dateDD: Number = 0
+  counter: Number = 0
+
+  
 
   constructor(
     private httpClient: HttpClient,
     private NASAAPISvc: NASAApiService,
-    private quotesAPISvc: QuotesApiService
-  ) {this.tempQuote = new Quotes(0,"","");}
+    private quotesAPISvc: QuotesApiService,
+    private favoritesAPISvc: FanFavoritesService
+  ) {this.tempQuote = new Quotes(0,"",""), this.singlequote = new Quotes(0, "", "");}
 
   ngOnInit(): void {
-    // this.getMiles();
-    // this.getNames();
-    // this.getHazard();
-    // this.getQuotes();
+    //this.getMiles();
+    //this.getNames();
+    //this.getHazard();
+    //this.getQuotes();
     //this.tempQuote = new Quotes(0,"","");
-    console.log(this.tempQuote)
-    this.getNumberOfAsteroids(this.calculateChance);
+    //console.log(this.tempQuote)
+    this.getNumberOfAsteroids(this.calculateChance,this.quotesAPISvc);
     //this.calculateChance();
+    //this.percentageMatch();
+
+
   }
 
 
@@ -78,21 +97,21 @@ export class HomePageComponent implements OnInit {
     })
   }
 
-  getNumberOfAsteroids(retElement: (input: Number) => void)
+  getNumberOfAsteroids(retElement: (input: Number, apiservice: QuotesApiService) => void, apiservice: QuotesApiService)
    {
     this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
-      retElement(Asteroids.element_count)
+      retElement(Asteroids.element_count, apiservice)
     })
   }
 
-  getQuotes(){
+  getQuotes(retQuote: (inputQ: Quotes[]) => void){
     this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
-      console.log(Quotes)
-    })
+      retQuote(Quotes)})
   }
 
-  calculateChance(input: Number){
+  calculateChance(input: Number, apiservice: QuotesApiService){
     let tempQuote = new Quotes(0,"","");
+    
 
     console.log(input)
     console.log(tempQuote)
@@ -118,56 +137,43 @@ export class HomePageComponent implements OnInit {
       tempQuote.percentage = 90;
     } else if (input >= 13) {
       tempQuote.percentage = 100;
-     } //else {
-    //   tempQuote.percentage = 17;
-    // }
+    }
 
-    console.log(tempQuote.percentage);
-   //   case (this.count >= 1 && this.count <= 4);
-    //   this.tempQuote.percentage = 10;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 5:
-    //   this.tempQuote.percentage = 20;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 6:
-    //   this.tempQuote.percentage = 30;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 7:
-    //   this.tempQuote.percentage = 40;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 8:
-    //   this.tempQuote.percentage = 50;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 9:
-    //   this.tempQuote.percentage = 60;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 10:
-    //   this.tempQuote.percentage = 70;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 11:
-    //   this.tempQuote.percentage = 80;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count = 12:
-    //   this.tempQuote.percentage = 90;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    //   case this.count >= 13:
-    //   this.tempQuote.percentage = 100;
-    //   //Call Method to match percentage and pull quote
-    //   break;
-    // }
-    // console.log(this.tempQuote.percentage);
-    // return;
+ 
 
+    apiservice.getQuotes().subscribe((Quotes) => {
+      let singlequote = Quotes.find(q => q.percentage === tempQuote.percentage)
+      if (singlequote != null){
+        console.log(singlequote.percentage)
+        console.log(singlequote.quote)
+        console.log(singlequote.recommendation)
+      }
+      })
+      
+      
+      
+      
+      // let percentage = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.percentage)
+      // let quote = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.quote)
+      // let recommendation = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.recommendation)
+      // this.percentage = this.percentage
+      // this.quote = this.quote
+      // this.recommendation = this.recommendation
+      // console.log(percentage)
+      // console.log(quote)
+      // console.log(recommendation)})
+
+   
+ 
+      // addtofavorites(){
+      //   let favorite = new FanFavorites(id, percentage, date, counter)
+      //   this.favoritesAPISvc.createFavorite(favorite).subscribe((favorite) =>{
+      //     console.log(["STUFF"])
+      //     console.log(favorite)
+      //   })
+      // }
+
+
+  
   }
-
-
 }

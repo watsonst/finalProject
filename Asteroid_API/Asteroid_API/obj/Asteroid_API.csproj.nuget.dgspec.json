@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Source\\Repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj": {}
+    "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj": {}
   },
   "projects": {
-    "D:\\Source\\Repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj": {
+    "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Source\\Repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
+        "projectUniqueName": "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
         "projectName": "Asteroid_API",
-        "projectPath": "D:\\Source\\Repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
-        "packagesPath": "C:\\Users\\Sean\\.nuget\\packages\\",
-        "outputPath": "D:\\Source\\Repos\\finalProject\\Asteroid_API\\Asteroid_API\\obj\\",
+        "projectPath": "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\Asteroid_API.csproj",
+        "packagesPath": "C:\\Users\\me\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\me\\source\\repos\\finalProject\\Asteroid_API\\Asteroid_API\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Sean\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\me\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,7 +22,8 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {}
+          "https://api.nuget.org/v3/index.json": {},
+          "https://nuget.pkg.github.com/watsonst/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {

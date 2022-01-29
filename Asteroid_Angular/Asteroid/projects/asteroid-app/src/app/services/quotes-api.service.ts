@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Quotes } from '../Models/Quotes';
 
 @Injectable({
   providedIn: 'root'
@@ -11,7 +12,7 @@ export class QuotesApiService {
     private httpClient: HttpClient
   ) { }
 
-  getQuotes(): Observable<any>{
-    return this.httpClient.get<any>("https://localhost:44339/Quotes/list")
+  getQuotes(): Observable<Quotes[]>{
+    return this.httpClient.get<Quotes[]>("https://localhost:44339/Quotes/list")
   }
 }

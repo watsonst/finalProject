@@ -23,6 +23,23 @@
 --insert into Quotes(Percentage, Quote, Recommendation)
 --values('20', 'Test two', 'Test three')
 
---select * from Quotes
+insert into Quotes(Percentage, Quote, Recommendation)
+values('30', 'Test two', 'Test three')
+insert into Quotes(Percentage, Quote, Recommendation)
+values('40', 'Test two', 'Test three')
+insert into Quotes(Percentage, Quote, Recommendation)
+values('50', 'Test two', 'Test three')
+insert into Quotes(Percentage, Quote, Recommendation)
+values('60', 'Test two', 'Test three')
+insert into Quotes(Percentage, Quote, Recommendation)
+values('70', 'Test two', 'Test three')
+insert into Quotes(Percentage, Quote, Recommendation)
+values('80', 'Test two', 'Test three')
+insert into Quotes(Percentage, Quote, Recommendation)
+values('90', 'Test two', 'Test three')
+insert into Quotes(Percentage, Quote, Recommendation)
+values('100', 'Test two', 'Test three')
+
+select * from Quotes
 
 --select * from FanFavorites
