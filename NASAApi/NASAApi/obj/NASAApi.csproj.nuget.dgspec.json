@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\me\\source\\repos\\NASAApi\\NASAApi\\NASAApi.csproj": {}
+    "D:\\Source\\Repos\\finalProject\\NASAApi\\NASAApi\\NASAApi.csproj": {}
   },
   "projects": {
-    "C:\\Users\\me\\source\\repos\\NASAApi\\NASAApi\\NASAApi.csproj": {
+    "D:\\Source\\Repos\\finalProject\\NASAApi\\NASAApi\\NASAApi.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\me\\source\\repos\\NASAApi\\NASAApi\\NASAApi.csproj",
+        "projectUniqueName": "D:\\Source\\Repos\\finalProject\\NASAApi\\NASAApi\\NASAApi.csproj",
         "projectName": "NASAApi",
-        "projectPath": "C:\\Users\\me\\source\\repos\\NASAApi\\NASAApi\\NASAApi.csproj",
-        "packagesPath": "C:\\Users\\me\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\me\\source\\repos\\NASAApi\\NASAApi\\obj\\",
+        "projectPath": "D:\\Source\\Repos\\finalProject\\NASAApi\\NASAApi\\NASAApi.csproj",
+        "packagesPath": "C:\\Users\\Sean\\.nuget\\packages\\",
+        "outputPath": "D:\\Source\\Repos\\finalProject\\NASAApi\\NASAApi\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\me\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Sean\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -22,8 +22,7 @@
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-          "https://api.nuget.org/v3/index.json": {},
-          "https://nuget.pkg.github.com/watsonst/index.json": {}
+          "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
           "netcoreapp3.1": {

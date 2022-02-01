@@ -15,24 +15,15 @@ namespace NASAApi.Controllers
     [ApiController]
     public class NASAController : Controller
     {
-        public string NASAUrl = "https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
-
-      
-
         [HttpGet]
-        [Route("asteroids")]
-        public async Task<Double> getMiles()
+        [Route("miles")]
+        public async Task<Double> getMiles(string finalDate)
         {
-
-            //DateYYYY = 2022;
-            //DateMM = 01;
-            //DateDD = 18;
             double miles = 0;
 
 
-            //var url = https://api.nasa.gov/neo/rest/v1/feed?start_date={DateYYYY}-{DateMM}-{DateDD}&end_date={DateYYYY}-{DateMM}-{DateDD}&api_key=DEMO_KEY";
-            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
-            var result = new List<Asteroid>();
+            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+            //var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
            
 
             using (HttpClient client = new HttpClient())
@@ -42,7 +33,7 @@ namespace NASAApi.Controllers
                 var response = await client.GetAsync(url);
                 string responseJSON = await response.Content.ReadAsStringAsync();
                 dynamic responseObject = JsonConvert.DeserializeObject(responseJSON);
-                foreach (dynamic D in responseObject.near_earth_objects["1991-04-15"])
+                foreach (dynamic D in responseObject.near_earth_objects[$"{finalDate}"])
                 {
                     if(D.estimated_diameter.miles.estimated_diameter_max > miles)
                     {
@@ -54,88 +45,93 @@ namespace NASAApi.Controllers
                 
             }
             return miles;
+        }
+
+        [HttpGet]
+        [Route("kilometers")]
+        public async Task<Double> getKilometers(string finalDate)
+        {
+            double kilometers = 0;
 
 
+            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+            //var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
 
 
+            using (HttpClient client = new HttpClient())
+            {
 
 
+                var response = await client.GetAsync(url);
+                string responseJSON = await response.Content.ReadAsStringAsync();
+                dynamic responseObject = JsonConvert.DeserializeObject(responseJSON);
+                foreach (dynamic D in responseObject.near_earth_objects[$"{finalDate}"])
+                {
+                    if (D.estimated_diameter.kilometers.estimated_diameter_max > kilometers)
+                    {
+                        kilometers = D.estimated_diameter.kilometers.estimated_diameter_max;
+                    }
+
+                }
 
 
-            // GET: NASAController
-            //     public ActionResult Index()
-            //     {
-            //         return View();
-            //     }
+            }
+            return kilometers;
+        }
 
-            // GET: NASAController / Details / 5
-            //     public ActionResult Details(int id)
-            //     {
-            //         return View();
-            //     }
+        [HttpGet]
+        [Route("name")]
+        public async Task<IActionResult> getName(string finalDate)
+        {
+            string name = "";
+            double miles = 0;
 
-            // GET: NASAController / Create
-            //     public ActionResult Create()
-            //     {
-            //         return View();
-            //     }
+            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+            //var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
 
-            // POST: NASAController / Create
-            //[HttpPost]
-            //[ValidateAntiForgeryToken]
-            //     public ActionResult Create(IFormCollection collection)
-            //     {
-            //         try
-            //         {
-            //             return RedirectToAction(nameof(Index));
-            //         }
-            //         catch
-            //         {
-            //             return View();
-            //         }
-            //     }
 
-            // GET: NASAController / Edit / 5
-            //     public ActionResult Edit(int id)
-            //     {
-            //         return View();
-            //     }
+            using (HttpClient client = new HttpClient())
+            {
 
-            // POST: NASAController / Edit / 5
-            //[HttpPost]
-            //[ValidateAntiForgeryToken]
-            //     public ActionResult Edit(int id, IFormCollection collection)
-            //     {
-            //         try
-            //         {
-            //             return RedirectToAction(nameof(Index));
-            //         }
-            //         catch
-            //         {
-            //             return View();
-            //         }
-            //     }
 
-            // GET: NASAController / Delete / 5
-            //     public ActionResult Delete(int id)
-            //     {
-            //         return View();
-            //     }
+                var response = await client.GetAsync(url);
+                string responseJSON = await response.Content.ReadAsStringAsync();
+                dynamic responseObject = JsonConvert.DeserializeObject(responseJSON);
+                foreach (dynamic D in responseObject.near_earth_objects[$"{finalDate}"])
+                {
+                    if (D.estimated_diameter.miles.estimated_diameter_max > miles)
+                    {
+                        miles = D.estimated_diameter.miles.estimated_diameter_max;
+                    }
+                }
 
-            // POST: NASAController / Delete / 5
-            //[HttpPost]
-            //[ValidateAntiForgeryToken]
-            //     public ActionResult Delete(int id, IFormCollection collection)
-            //     {
-            //         try
-            //         {
-            //             return RedirectToAction(nameof(Index));
-            //         }
-            //         catch
-            //         {
-            //             return View();
-            //         }
-            //     }
+                foreach(dynamic D in responseObject.near_earth_objects[$"{finalDate}"])
+                {
+                    if (D.estimated_diameter.miles.estimated_diameter_max == miles)
+                    {
+                        name = D.name;
+                    }
+                }
+
+                var rename = JsonConvert.SerializeObject(name);
+                return new OkObjectResult(rename);
+            }
+        }
+
+        [HttpGet]
+        [Route("count")]
+        public async Task<int> getCount(string finalDate)
+        {
+            using (HttpClient client = new HttpClient())
+            {
+                var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+
+                var response = await client.GetAsync(url);
+                string responseJSON = await response.Content.ReadAsStringAsync();
+                dynamic responseObject = JsonConvert.DeserializeObject(responseJSON);
+
+                return responseObject.element_count;
+            }
         }
     }
 }
