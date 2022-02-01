@@ -41,9 +41,9 @@ export class HomePageComponent implements OnInit {
   ) {this.tempQuote = new Quotes(0,"",""), this.singlequote = new Quotes(0, "", "");}
 
   ngOnInit(): void {
-    //this.getMiles();
-    //this.getNames();
-    //this.getHazard();
+    this.getMiles();
+    this.getNames();
+    this.getHazard();
     //this.getQuotes();
     //this.tempQuote = new Quotes(0,"","");
     //console.log(this.tempQuote)
@@ -54,11 +54,20 @@ export class HomePageComponent implements OnInit {
 
   }
 
+  getAsteroids(){
+    this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
+      //console.log("[INFO]")
+      console.log(Asteroids);
+      
+    })
+  }
+
+
 
   getMiles(){
       this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
-        console.log("[INFO]")
-        console.log(Asteroids.near_earth_objects["2022-01-18"][0].estimated_diameter.miles.estimated_diameter_max);
+        //console.log("[INFO]")
+        //console.log(Asteroids.near_earth_objects["2022-01-18"][0].estimated_diameter.miles.estimated_diameter_max);
         this.asteroids = Asteroids
         let asteroidsTemp = this.asteroids.near_earth_objects["2022-01-18"]
         console.log(asteroidsTemp)
@@ -71,11 +80,11 @@ export class HomePageComponent implements OnInit {
 
   getNames(){
     this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
-      console.log("[INFO]")
-      console.log(Asteroids.near_earth_objects["2022-01-18"][0].name);
+      //console.log("[INFO]")
+      //console.log(Asteroids.near_earth_objects["2022-01-18"][0].name);
       this.asteroids = Asteroids
       let asteroidsTemp = this.asteroids.near_earth_objects["2022-01-18"]
-      console.log(asteroidsTemp)
+      //console.log(asteroidsTemp)
       for (let i = 0; i < asteroidsTemp.length; i++) {
         const astNames = asteroidsTemp[i].name;
         console.log(astNames)
@@ -85,11 +94,11 @@ export class HomePageComponent implements OnInit {
 
   getHazard(){
     this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
-      console.log("[INFO]")
+      //console.log("[INFO]")
       console.log(Asteroids.near_earth_objects["2022-01-18"][0].is_potentially_hazardous_asteroid);
       this.asteroids = Asteroids
       let asteroidsTemp = this.asteroids.near_earth_objects["2022-01-18"]
-      console.log(asteroidsTemp)
+      //console.log(asteroidsTemp)
       for (let i = 0; i < asteroidsTemp.length; i++) {
         const astHaz = asteroidsTemp[i].is_potentially_hazardous_asteroid;
         console.log(astHaz)
@@ -114,7 +123,7 @@ export class HomePageComponent implements OnInit {
     
 
     console.log(input)
-    console.log(tempQuote)
+    //console.log(tempQuote)
     // this.count = this.getNumberOfAsteroids();
     if (input <= 1 && input >= 4) {
       tempQuote.percentage = 10; 
@@ -148,6 +157,8 @@ export class HomePageComponent implements OnInit {
         console.log(singlequote.quote)
         console.log(singlequote.recommendation)
       }
+      return singlequote
+
       })
       
       

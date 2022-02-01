@@ -4,5 +4,19 @@ export class Quotes {
         public quote: String, 
         public recommendation: String,        
     ){}
+
+    getPercentage(){
+        return this.percentage
+    }
+
+    getQuote(){
+        return this.quote
+    }
+
+    getRec(){
+        return this.recommendation
+    }
+
+
 }
  

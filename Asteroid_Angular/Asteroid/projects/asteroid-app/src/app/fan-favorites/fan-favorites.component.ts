@@ -24,7 +24,7 @@ export class FanFavoritesComponent implements OnInit {
 
   readFavorites(){
     this.favoriteAPISvc.getFavorites().subscribe((favorites) => {
-      console.log(["INFO"])
+      //console.log(["INFO"])
       console.log(favorites);
       this.favorites = favorites
     })
