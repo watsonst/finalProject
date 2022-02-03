@@ -5,7 +5,8 @@ import { HomePageComponent } from './home-page/home-page.component';
 
 const routes: Routes = [
   {path: "home", component: HomePageComponent},
-  {path: "fanfavorites", component: FanFavoritesComponent}
+  {path: "fanfavorites", component: FanFavoritesComponent},
+  {path: "", redirectTo: "/home", pathMatch: "prefix"}
 ];
 
 @NgModule({
