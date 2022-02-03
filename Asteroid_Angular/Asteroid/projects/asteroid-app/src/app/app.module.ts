@@ -8,17 +8,21 @@ import { HttpClientModule } from "@angular/common/http";
 import { FanFavoritesComponent } from './fan-favorites/fan-favorites.component';
 import { FanFavoritesService } from './services/fan-favorites.service';
 import { QuotesApiService } from './services/quotes-api.service';
+import { HeaderComponent } from './header/header.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomePageComponent,
     FanFavoritesComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule
   ],
   providers: [QuotesApiService],
   bootstrap: [AppComponent]

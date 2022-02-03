@@ -1,0 +1,78 @@
+*{
+  margin: 0;
+  padding: 0;
+}
+
+#header{
+  position: absolute;
+  z-index: 10;
+  height: 300px;
+  width: 100%;
+}
+
+.navbar-custom{
+  padding: 10px;
+  text-align: center;
+}
+
+.nav-link {
+  color: white !important;
+  text-decoration: none;
+  font-size: 100px;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.main{
+  position: reltaive;
+  background: url("projects/asteroid-app/src/assets/background.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+.main h1{
+  color: white;
+  text-align: center;
+}
+
+.main h2{
+  color: white;
+  text-align: center;
+}
+
+.main h3{
+  color: white;
+  text-align: center;
+}
+.main h4{
+  color: white;
+  text-align: center;
+}
+
+/* .navbar-custom{
+  background: transparent !important;
+  height:100px;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  text-align: center;
+}
+
+.background-image {
+    background-image: url("projects/asteroid-app/src/assets/background.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    margin: -21px 0px 0px 0px;
+    padding: 0px 0px 0px 0px;
+
+   
+  }
+ */
+

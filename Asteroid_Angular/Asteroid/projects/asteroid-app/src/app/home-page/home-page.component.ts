@@ -24,7 +24,7 @@ export class HomePageComponent implements OnInit {
 
   percentage: Number = 0
   quote: String = ""
-  recommendation = ""
+  recommendation: String = ""
 
   dateYYYY: Number = 0
   dateMM: Number = 0
@@ -32,11 +32,13 @@ export class HomePageComponent implements OnInit {
   counter: Number = 0
 
   //finalDate: String = `${this.dateYYYY}-${this.dateMM}-${this.dateDD}`
-  finalDate: String = "1991-04-15"
+  finalDate: String = "2022-01-18"
   miles: Number = 0
   kilometers: Number = 0
   title: any
   amount:Number = 0
+
+  linkToHome: String = '#';
 
   constructor(
     private httpClient: HttpClient,
@@ -47,19 +49,19 @@ export class HomePageComponent implements OnInit {
   ) {this.tempQuote = new Quotes(0,"",""), this.singlequote = new Quotes(0, "", "");}
 
   ngOnInit(): void {
-    this.getMiles();
-    this.getKilometers()
-    this.getName()
-    this.getCount()
+    //this.getMiles();
+    //this.getKilometers()
+    //this.getName()
+    //this.getCount()
     // this.getNames();
     // this.getHazard();
     //this.getQuotes();
     //this.tempQuote = new Quotes(0,"","");
     //console.log(this.tempQuote)
     // this.getNumberOfAsteroids(this.calculateChance,this.quotesAPISvc);
-    //this.calculateChance();
+    this.calculateChance();
     //this.percentageMatch();
-
+    this.linkToHome = `/home`
 
   }
 
@@ -112,8 +114,60 @@ export class HomePageComponent implements OnInit {
     this.ourNasaAPISvc.getCount(this.finalDate).subscribe((amount) =>{
       this.amount = amount
       console.log(this.amount)
+      return this.amount
     })
   }
+
+ getQuotes(){
+     this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
+      this.quotesList = Quotes
+   })
+  }
+
+  calculateChance(){
+    let tempQuote = new Quotes(0,"","");
+    this.amount = 15
+      if (this.amount <= 1 && this.amount >= 4) {
+         tempQuote.percentage = 10; 
+        }
+        else if (this.amount == 5) {
+        tempQuote.percentage = 20;
+        } else if (this.amount == 6) {
+        tempQuote.percentage = 30;
+        } else if (this.amount == 7) {
+        tempQuote.percentage = 40;
+        } else if (this.amount == 8) {
+        tempQuote.percentage = 50;
+        } else if (this.amount == 9) {
+        tempQuote.percentage = 60;
+        } else if (this.amount == 10) {
+        tempQuote.percentage = 70;
+        } else if (this.amount == 11) {
+        tempQuote.percentage = 80;
+        } else if (this.amount == 12) {
+        tempQuote.percentage = 90;
+        } else if (this.amount>= 13) {
+        tempQuote.percentage = 100;
+      }
+    
+
+    console.log(tempQuote)      
+
+
+    this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
+    this.quotesList = Quotes
+    let singlequote = this.quotesList.find(q => q.percentage === tempQuote.percentage)
+    if (singlequote != null){
+      console.log(singlequote.percentage)
+      this.percentage = singlequote.percentage
+      console.log(singlequote.quote)
+      this.quote = this.singlequote.quote
+      console.log(singlequote.recommendation)
+      this.recommendation = singlequote.recommendation
+    } 
+  })
+  }
+
 
   // getNames(){
   //   this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
@@ -209,5 +263,4 @@ export class HomePageComponent implements OnInit {
 
 
   
-  //}
 }

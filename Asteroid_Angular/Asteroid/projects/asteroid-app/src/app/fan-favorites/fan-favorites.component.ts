@@ -12,7 +12,7 @@ export class FanFavoritesComponent implements OnInit {
   favorites: FanFavorites[]=[]
 
   percentage: Number = 0
- 
+  linkToHome: String = '#';
 
   constructor(
     private favoriteAPISvc: FanFavoritesService
