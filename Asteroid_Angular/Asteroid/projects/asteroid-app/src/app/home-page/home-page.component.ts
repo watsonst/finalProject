@@ -1,10 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
+import {take } from 'rxjs';
 import { NASAApiService } from '../services/nasa-api.service';
 import { Asteroids } from '../Models/Asteroids';
 import { QuotesApiService } from '../services/quotes-api.service';
 import { Quotes } from '../Models/Quotes';
-import { Quote, templateJitUrl } from '@angular/compiler';
+import { CompileShallowModuleMetadata, Quote, templateJitUrl } from '@angular/compiler';
 import { FanFavorites } from '../Models/FanFavorites';
 import { FanFavoritesService } from '../services/fan-favorites.service';
 import { OurNasaApiService } from '../services/our-nasa-api.service';
@@ -19,7 +20,7 @@ export class HomePageComponent implements OnInit {
   asteroids: any
   input: Number = 0
   tempQuote: Quotes
-  quotesList: Quotes[] = []
+  public quotesList: Quotes[] = [];
   singlequote: Quotes
 
   percentage: Number = 0
@@ -49,13 +50,30 @@ export class HomePageComponent implements OnInit {
   ) {this.tempQuote = new Quotes(0,"",""), this.singlequote = new Quotes(0, "", "");}
 
   ngOnInit(): void {
-    //this.getMiles();
-    //this.getKilometers()
-    //this.getName()
-    //this.getCount()
+    this.getMiles();
+    this.getKilometers()
+    this.getName()
+    this.getCount()
+    console.log(this.amount)
     // this.getNames();
     // this.getHazard();
-    //this.getQuotes();
+    //var stuff = this.getQuotes();
+   // this.quotesList = stuff
+    var stuff  = this.getQuotesPromise();
+    console.log(stuff)
+    const list = stuff.then(value => {
+      const json = JSON.stringify(value);
+      console.log(JSON.parse(json));
+      return JSON.parse(json);
+    });
+
+    const printList = async () => {
+      const a = await list;
+      console.log(a);
+      return a;
+    }
+
+    console.log('PARSED LIST: ', list);
     //this.tempQuote = new Quotes(0,"","");
     //console.log(this.tempQuote)
     // this.getNumberOfAsteroids(this.calculateChance,this.quotesAPISvc);
@@ -64,6 +82,8 @@ export class HomePageComponent implements OnInit {
     this.linkToHome = `/home`
 
   }
+
+ 
 
   getAsteroids(){
     this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
@@ -111,23 +131,33 @@ export class HomePageComponent implements OnInit {
   }
 
   getCount(){
-    this.ourNasaAPISvc.getCount(this.finalDate).subscribe((amount) =>{
-      this.amount = amount
+    this.ourNasaAPISvc.getCount(this.finalDate).subscribe((NASAamount) =>{
+      this.amount = NASAamount
       console.log(this.amount)
-      return this.amount
     })
   }
 
  getQuotes(){
-     this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
-      this.quotesList = Quotes
-   })
+   this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
+      this.quotesList = Quotes;
+      console.log('list:', this.quotesList);
+      return this.quotesList;
+    });
+  
+   //return this.quotesList;
+  }
+
+  async getQuotesPromise() {
+    let data = await this.quotesAPISvc.getQuotes().toPromise();
+    return data;
   }
 
   calculateChance(){
     let tempQuote = new Quotes(0,"","");
-    this.amount = 15
-      if (this.amount <= 1 && this.amount >= 4) {
+  
+    console.log(this.amount)
+
+      if (this.amount >= 0 && this.amount <= 4) {
          tempQuote.percentage = 10; 
         }
         else if (this.amount == 5) {
@@ -149,14 +179,13 @@ export class HomePageComponent implements OnInit {
         } else if (this.amount>= 13) {
         tempQuote.percentage = 100;
       }
-    
+      
+      console.log(tempQuote.percentage)
+      console.log('quotelist:', this.quotesList)
 
-    console.log(tempQuote)      
 
-
-    this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
-    this.quotesList = Quotes
     let singlequote = this.quotesList.find(q => q.percentage === tempQuote.percentage)
+    console.log('singlequote: ', singlequote)
     if (singlequote != null){
       console.log(singlequote.percentage)
       this.percentage = singlequote.percentage
@@ -165,8 +194,8 @@ export class HomePageComponent implements OnInit {
       console.log(singlequote.recommendation)
       this.recommendation = singlequote.recommendation
     } 
-  })
   }
+  
 
 
   // getNames(){
@@ -260,7 +289,5 @@ export class HomePageComponent implements OnInit {
       //     console.log(favorite)
       //   })
       // }
-
-
-  
+ 
 }
