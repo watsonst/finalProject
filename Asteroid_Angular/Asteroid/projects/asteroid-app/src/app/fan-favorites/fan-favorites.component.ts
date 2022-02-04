@@ -8,7 +8,7 @@ import { FanFavoritesService } from '../services/fan-favorites.service';
   styleUrls: ['./fan-favorites.component.css']
 })
 export class FanFavoritesComponent implements OnInit {
-
+  id: Number = 0
   favorites: FanFavorites[]=[]
 
   percentage: Number = 0
@@ -30,11 +30,27 @@ export class FanFavoritesComponent implements OnInit {
     })
   }
 
-  // updateFavorties(){
-  //   this.favoriteAPISvc.updateFavorite().subscribe((?favorites?) => {
-  //     console.log(["update"])
-  //     console.log(?favorites?)
+  // createFavorites(favorite: FanFavorites){
+  //   this.favoriteAPISvc.createFavorite(favorite).subscribe((newFav)=> {
+  //     console.log("[INFO]")
+  //     console.log(newFav)
   //   })
   // }
+
+  updateFavorites(favorite: FanFavorites){
+    this.favoriteAPISvc.updateFavorite(favorite).subscribe((favorites) => {
+      console.log(["update"])
+      console.log(favorites)
+    })
+    this.reloadCurrentPage()
+  }
+
+  reloadCurrentPage() {
+    window.location.reload()
+  }
+
+  deleteFavorite(favorite: FanFavorites){
+    this.favoriteAPISvc.deleteFavorite(favorite.id)
+  }
 
 }

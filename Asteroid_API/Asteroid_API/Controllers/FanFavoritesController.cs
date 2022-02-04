@@ -24,7 +24,7 @@ namespace Asteroid_API.Controllers
         // GET: FanFavorites
         [HttpGet]
         [Route("FavList")]
-        public async Task<IActionResult> GetFavorites(int ID)
+        public async Task<IActionResult> GetFavorites()
         {
             var favs = await _context.FanFavorites.ToListAsync();
 
@@ -34,32 +34,45 @@ namespace Asteroid_API.Controllers
 
         [HttpPost]
         [Route("NewFav")]
-        public async Task<IActionResult> CreateFav([Bind("Date, Percentage, Counter")] FanFavorites favorite)
+        public async Task<IActionResult> CreateFav([Bind("Date, Percentage, Counter, Quote, Recommendation")] FanFavorites favorite)
         {
-            var newFav = new FanFavorites();
+            bool check = false;
+            var favs = await _context.FanFavorites.ToListAsync();
+            foreach (FanFavorites fav in favs)
+            {
+                if(fav.Date == favorite.Date)
+                {
+                    check = true;
+                }
+            }
 
-            newFav.Date = favorite.Date;
-            newFav.Percentage = favorite.Percentage;
-            newFav.Counter = favorite.Counter;
+            if(check == false)
+            {
+                favorite.Counter++;
+                await _context.AddAsync(favorite);
+                await _context.SaveChangesAsync();
 
-            await _context.AddAsync(newFav);
-            await _context.SaveChangesAsync();
-
-            var result = new OkObjectResult(newFav);
-            return result;
+                var result = new OkObjectResult(favorite);
+                return result;
+            }
+            else
+            {
+                await UpdateFav(favorite);
+                var result = new OkObjectResult(favorite);
+                return result;
+            }
+         
         }
 
-        [HttpPost]
+        [HttpPut]
         [Route("UpdateFav")]
-        public async Task<IActionResult> UpdateFav(int ID)
+        public async Task<IActionResult> UpdateFav(FanFavorites favorite)
         {
-            var updateFav = await _context.FanFavorites.FirstOrDefaultAsync(m => m.ID == ID);
-
-            updateFav.Counter++;
-
+            favorite.Counter++;
+            _context.Update(favorite);
             await _context.SaveChangesAsync();
 
-            var result = new OkObjectResult(updateFav);
+            var result = new OkObjectResult(favorite);
             return result;
         }
 

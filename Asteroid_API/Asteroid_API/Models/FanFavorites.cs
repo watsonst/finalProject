@@ -11,5 +11,7 @@ namespace Asteroid_API.Models
         public string Date { get; set; }
         public int Percentage { get; set; }
         public int Counter { get; set; }
+        public string Quote { get; set; }
+        public string Recommendation { get; set; }
     }
 }

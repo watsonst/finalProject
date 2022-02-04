@@ -241,26 +241,65 @@ export class HomePageComponent implements OnInit {
       
       
       
-      // let percentage = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.percentage)
-      // let quote = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.quote)
-      // let recommendation = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.recommendation)
-      // this.percentage = this.percentage
-      // this.quote = this.quote
-      // this.recommendation = this.recommendation
-      // console.log(percentage)
-      // console.log(quote)
-      // console.log(recommendation)})
+  // let percentage = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.percentage)
+  // let quote = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.quote)
+  // let recommendation = Quotes.filter(q => q.percentage === tempQuote.percentage).map(q => q.recommendation)
+  // this.percentage = this.percentage
+  // this.quote = this.quote
+  // this.recommendation = this.recommendation
+  // console.log(percentage)
+  // console.log(quote)
+  // console.log(recommendation)})
 
    
  
-      // addtofavorites(){
-      //   let favorite = new FanFavorites(id, percentage, date, counter)
-      //   this.favoritesAPISvc.createFavorite(favorite).subscribe((favorite) =>{
-      //     console.log(["STUFF"])
-      //     console.log(favorite)
-      //   })
-      // }
+  // addtofavorites(){
+  //   let favorite = new FanFavorites(id, percentage, date, counter)
+  //   this.favoritesAPISvc.createFavorite(favorite).subscribe((favorite) =>{
+  //     console.log(["STUFF"])
+  //     console.log(favorite)
+  //   })
+  // }
 
+  getMiles(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getMiles(finalDate).subscribe((miles) => {
+      this.miles = miles
+      console.log(this.miles)
+    })
+  }
+    
+  getKilometers(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getKilometers(finalDate).subscribe((kilometers) =>{
+      this.kilometers = kilometers
+       console.log(this.kilometers)
+    })
+  }
+    
+  getName(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getName(finalDate).subscribe((title) =>{
+      this.title = title
+      console.log(this.title)
+    })
+  }
+    
+  getCount(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getCount(finalDate).subscribe((amount) =>{
+      this.amount = amount
+      console.log(this.amount)
+    })
+  }
 
+  getFinalDate(dateYYYY: Number, dateMM: Number, dateDD: Number): String{
+    let finalDate:String = dateYYYY + "-" + dateMM + "-" + dateDD
+    return finalDate
+  }
   
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> new_api_sean_l
