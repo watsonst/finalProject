@@ -9,6 +9,17 @@
   height: 300px;
   width: 100%;
 }
+#footer{
+  position: absolute;
+  font-size: x-small;
+  z-index: 999;
+  height: 13px;
+  width: 100%;
+  bottom: 0;
+  background: transparent;
+  color: white;
+  text-align: center;
+}
 
 .navbar-custom{
   padding: 10px;
@@ -18,11 +29,10 @@
 .nav-link {
   color: white !important;
   text-decoration: none;
-  font-size: 100px;
+  font-size:  clamp(1rem, -3.1250rem + 18.3333vw, 6.5rem);
   justify-content: center;
   align-items: center;
 }
-
 
 .main{
   position: reltaive;
@@ -35,11 +45,25 @@
 .main h1{
   color: white;
   text-align: center;
+  font-size: clamp(1rem, -1.6250rem + 11.6667vw, 4.5rem);
+}
+.main p{
+  color: white;
+  text-align: center;
+  font-size: clamp(1rem, -0.1250rem + 5.0000vw, 2.5rem);
+}
+
+#p2{
+  color: white;
+  text-align: center;
+  font-size: x-large;
+
 }
 
 .main h2{
   color: white;
   text-align: center;
+  font-size: clamp(1rem, -0.8750rem + 8.3333vw, 3.5rem);
 }
 
 .main h3{
@@ -50,6 +74,27 @@
   color: white;
   text-align: center;
 }
+
+.main h5{
+  color: white;
+  text-align: center;
+}
+
+#small{
+  color: white;
+  font-size: medium;
+  text-align: center;
+}
+
+.card{
+  background-color: black;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+  padding: 10px;
+}
+
+
 
 /* .navbar-custom{
   background: transparent !important;

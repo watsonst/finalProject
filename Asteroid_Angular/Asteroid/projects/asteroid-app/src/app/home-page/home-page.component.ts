@@ -89,34 +89,34 @@ export class HomePageComponent implements OnInit {
   //     })
   // }
 
-  getMiles(){
-    this.ourNasaAPISvc.getMiles(this.finalDate).subscribe((miles) => {
-      this.miles = miles
-      console.log(this.miles)
-    })
-  }
+  // getMiles(){
+  //   this.ourNasaAPISvc.getMiles(this.finalDate).subscribe((miles) => {
+  //     this.miles = miles
+  //     console.log(this.miles)
+  //   })
+  // }
 
-  getKilometers(){
-    this.ourNasaAPISvc.getKilometers(this.finalDate).subscribe((kilometers) =>{
-      this.kilometers = kilometers
-      console.log(this.kilometers)
-    })
-  }
+  // getKilometers(){
+  //   this.ourNasaAPISvc.getKilometers(this.finalDate).subscribe((kilometers) =>{
+  //     this.kilometers = kilometers
+  //     console.log(this.kilometers)
+  //   })
+  // }
 
-  getName(){
-    this.ourNasaAPISvc.getName(this.finalDate).subscribe((title) =>{
-      this.title = title
-      console.log(this.title)
-    })
-  }
+  // getName(){
+  //   this.ourNasaAPISvc.getName(this.finalDate).subscribe((title) =>{
+  //     this.title = title
+  //     console.log(this.title)
+  //   })
+  // }
 
-  getCount(){
-    this.ourNasaAPISvc.getCount(this.finalDate).subscribe((amount) =>{
-      this.amount = amount
-      console.log(this.amount)
-      return this.amount
-    })
-  }
+  // getCount(){
+  //   this.ourNasaAPISvc.getCount(this.finalDate).subscribe((amount) =>{
+  //     this.amount = amount
+  //     console.log(this.amount)
+  //     return this.amount
+  //   })
+  // }
 
  getQuotes(){
      this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
@@ -298,8 +298,5 @@ export class HomePageComponent implements OnInit {
     return finalDate
   }
   
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> new_api_sean_l
+
