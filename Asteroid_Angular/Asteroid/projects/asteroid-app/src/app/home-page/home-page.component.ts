@@ -31,8 +31,6 @@ export class HomePageComponent implements OnInit {
   dateDD: Number = 0
   counter: Number = 0
 
-  //finalDate: String = `${this.dateYYYY}-${this.dateMM}-${this.dateDD}`
-  finalDate: String = "1991-04-15"
   miles: Number = 0
   kilometers: Number = 0
   title: any
@@ -47,10 +45,10 @@ export class HomePageComponent implements OnInit {
   ) {this.tempQuote = new Quotes(0,"",""), this.singlequote = new Quotes(0, "", "");}
 
   ngOnInit(): void {
-    this.getMiles();
-    this.getKilometers()
-    this.getName()
-    this.getCount()
+   // this.getMiles();
+    //this.getKilometers()
+    //this.getName()
+    //this.getCount()
     // this.getNames();
     // this.getHazard();
     //this.getQuotes();
@@ -87,29 +85,33 @@ export class HomePageComponent implements OnInit {
   //     })
   // }
 
-  getMiles(){
-    this.ourNasaAPISvc.getMiles(this.finalDate).subscribe((miles) => {
+  getMiles(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getMiles(finalDate).subscribe((miles) => {
       this.miles = miles
       console.log(this.miles)
     })
   }
 
-  getKilometers(){
-    this.ourNasaAPISvc.getKilometers(this.finalDate).subscribe((kilometers) =>{
+  getKilometers(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getKilometers(finalDate).subscribe((kilometers) =>{
       this.kilometers = kilometers
       console.log(this.kilometers)
     })
   }
 
-  getName(){
-    this.ourNasaAPISvc.getName(this.finalDate).subscribe((title) =>{
+  getName(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getName(finalDate).subscribe((title) =>{
       this.title = title
       console.log(this.title)
     })
   }
 
-  getCount(){
-    this.ourNasaAPISvc.getCount(this.finalDate).subscribe((amount) =>{
+  getCount(dateYYYY: Number, dateMM: Number, dateDD: Number){
+    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+    this.ourNasaAPISvc.getCount(finalDate).subscribe((amount) =>{
       this.amount = amount
       console.log(this.amount)
     })
@@ -207,7 +209,13 @@ export class HomePageComponent implements OnInit {
       //   })
       // }
 
+      addToFavorites(){
+        let favorite = new FanFavorites(0, 0, "", 0, "", "")
+      }
 
-  
+      getFinalDate(dateYYYY: Number, dateMM: Number, dateDD: Number): String{
+        let finalDate: String = dateYYYY + "-" + dateMM + "-" + dateDD
+        return finalDate
+      }
   //}
 }

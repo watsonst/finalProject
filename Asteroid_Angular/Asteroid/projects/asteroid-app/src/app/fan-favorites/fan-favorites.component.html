@@ -1,1 +1,9 @@
-<p>fan-favorites works!</p>
+<h1>Fan Favorites</h1>
+<ul class="favorites">
+    <li *ngFor="let favorite of favorites">
+        <div>{{favorite.percentage}} {{favorite.date}} {{favorite.quote}} {{favorite.recommendation}} {{favorite.counter}}<button type="button" (click)="updateFavorites(favorite)" class="btn btn-primary">Like it? Vote here!</button> </div>
+    </li>
+</ul>
+<div>
+    <button type="button" (click)="reloadCurrentPage()">refresh</button>
+</div>

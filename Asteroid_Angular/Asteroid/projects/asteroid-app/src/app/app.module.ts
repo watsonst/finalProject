@@ -13,7 +13,7 @@ import { QuotesApiService } from './services/quotes-api.service';
   declarations: [
     AppComponent,
     HomePageComponent,
-    FanFavoritesComponent,
+    FanFavoritesComponent
   ],
   imports: [
     BrowserModule,
