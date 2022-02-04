@@ -1,9 +1,31 @@
-<h1>Fan Favorites</h1>
-<ul class="favorites">
-    <li *ngFor="let favorite of favorites">
-        <div>{{favorite.percentage}} {{favorite.date}} {{favorite.quote}} {{favorite.recommendation}} {{favorite.counter}}<button type="button" (click)="updateFavorites(favorite)" class="btn btn-primary">Like it? Vote here!</button> </div>
-    </li>
-</ul>
-<div>
-    <button type="button" (click)="reloadCurrentPage()">refresh</button>
-</div>
+
+<body>
+    <section id="header">
+        <div class="container-fluid">
+            <nav class="navbar-custom">
+                <div class="container-header">
+                    <a class="nav-link center" href="{{linkToHome}}" >Is the sky falling?</a>
+                </div>
+            </nav>
+        </div>
+    </section>
+
+    <section class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <h1>Fan Favorites</h1>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</body>
