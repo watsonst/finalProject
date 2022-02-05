@@ -27,6 +27,8 @@ namespace Asteroid_API.Controllers
         public async Task<IActionResult> GetFavorites()
         {
             var favs = await _context.FanFavorites.ToListAsync();
+            favs = favs.OrderBy(f => f.Counter).ToList();
+            favs.Reverse();
 
             var result = new OkObjectResult(favs);
             return result;
