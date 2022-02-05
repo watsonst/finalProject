@@ -52,5 +52,4 @@ export class FanFavoritesComponent implements OnInit {
   deleteFavorite(favorite: FanFavorites){
     this.favoriteAPISvc.deleteFavorite(favorite.id)
   }
-
 }

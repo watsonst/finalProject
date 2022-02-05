@@ -89,35 +89,6 @@ export class HomePageComponent implements OnInit {
   //     })
   // }
 
-  // getMiles(){
-  //   this.ourNasaAPISvc.getMiles(this.finalDate).subscribe((miles) => {
-  //     this.miles = miles
-  //     console.log(this.miles)
-  //   })
-  // }
-
-  // getKilometers(){
-  //   this.ourNasaAPISvc.getKilometers(this.finalDate).subscribe((kilometers) =>{
-  //     this.kilometers = kilometers
-  //     console.log(this.kilometers)
-  //   })
-  // }
-
-  // getName(){
-  //   this.ourNasaAPISvc.getName(this.finalDate).subscribe((title) =>{
-  //     this.title = title
-  //     console.log(this.title)
-  //   })
-  // }
-
-  // getCount(){
-  //   this.ourNasaAPISvc.getCount(this.finalDate).subscribe((amount) =>{
-  //     this.amount = amount
-  //     console.log(this.amount)
-  //     return this.amount
-  //   })
-  // }
-
  getQuotes(){
      this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
       this.quotesList = Quotes
@@ -126,8 +97,7 @@ export class HomePageComponent implements OnInit {
 
   calculateChance(){
     let tempQuote = new Quotes(0,"","");
-    this.amount = 15
-      if (this.amount <= 1 && this.amount >= 4) {
+      if (this.amount >= 1 && this.amount <= 4) {
          tempQuote.percentage = 10; 
         }
         else if (this.amount == 5) {
@@ -261,42 +231,40 @@ export class HomePageComponent implements OnInit {
   //   })
   // }
 
-  getMiles(dateYYYY: Number, dateMM: Number, dateDD: Number){
-    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+  getMiles(finalDate: String){
     this.ourNasaAPISvc.getMiles(finalDate).subscribe((miles) => {
       this.miles = miles
       console.log(this.miles)
     })
   }
     
-  getKilometers(dateYYYY: Number, dateMM: Number, dateDD: Number){
-    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+  getKilometers(finalDate: String){
     this.ourNasaAPISvc.getKilometers(finalDate).subscribe((kilometers) =>{
       this.kilometers = kilometers
        console.log(this.kilometers)
     })
   }
     
-  getName(dateYYYY: Number, dateMM: Number, dateDD: Number){
-    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+  getName(finalDate: String){
     this.ourNasaAPISvc.getName(finalDate).subscribe((title) =>{
       this.title = title
       console.log(this.title)
     })
   }
     
-  getCount(dateYYYY: Number, dateMM: Number, dateDD: Number){
-    let finalDate: String = this.getFinalDate(dateYYYY, dateMM, dateDD)
+  getCount(finalDate: String){
     this.ourNasaAPISvc.getCount(finalDate).subscribe((amount) =>{
       this.amount = amount
       console.log(this.amount)
     })
   }
 
-  getFinalDate(dateYYYY: Number, dateMM: Number, dateDD: Number): String{
-    let finalDate:String = dateYYYY + "-" + dateMM + "-" + dateDD
-    return finalDate
+  getFinalDate(){
+    let finalDate:String = this.dateYYYY + "-" + this.dateMM + "-" + this.dateDD
+    this.getMiles(finalDate)
+    this.getKilometers(finalDate)
+    this.getName(finalDate)
+    this.getCount(finalDate)
   }
   
 }
-
