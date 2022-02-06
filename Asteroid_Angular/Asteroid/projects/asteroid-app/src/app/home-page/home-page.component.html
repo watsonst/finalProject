@@ -1,4 +1,102 @@
+<html>
+    
+<body class="body">
 
+   <div class="background-image">
+
+    <section id="header">
+        <div class="container-fluid">
+            <nav class="navbar-custom">
+                <div class="container-header">
+                    <a class="nav-link center" href="{{linkToHome}}" >Is the sky falling?</a>
+                </div>
+            </nav>
+        </div>
+    </section>
+   
+
+
+
+    <section class="main">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-12 col-md-6">
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <br>
+                    <p> Will you be hit by an asteroid today?</p>
+                    <br>
+                    <!-- <p id="p2">Check your fate:</p> -->
+                </div>
+            </div>
+        </div>
+        
+        <div class="container" id="myForm" style="text-align:center">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-inline">
+                        <label class="label">Year:</label>
+                        <input class="input4" type="text" maxlength="4" required pattern="[1-2][9,0][0-9][0-9]" [(ngModel)]="dateYYYY">
+                        <label class="label">Month: </label>
+                        <input class="input2" type="text" maxlength="2" required pattern="[0-1][0-9]" onchange="if(this.value.length < 2) this.value = '0' + this.value;" [(ngModel)]="dateMM">
+                        <label class="label">Day: </label>
+                        <input class="input2" type="text" maxlength="2" required pattern="[0-3][0-9]" onchange="if(this.value.length < 2) this.value = '0' + this.value;" [(ngModel)]="dateDD">
+                        <br>
+                        <br>
+                        <button class="button" (click)="getFinalDate()">Check Your Fate</button>
+                    </div>
+                </div>   
+            </div>  
+              
+        </div>
+
+<br>
+<br>
+<br>
+<br>
+        <div class="container">
+                     <div class="card mx-auto" style="width: 50%;">
+                            <div class="card-body">
+                                <br>
+                                <br>
+                                <h3 id="med">Your Chance = {{this.percentage}} </h3>
+                                <br>
+                                <br>
+                                <p id="small">Number of current near earth objects: {{amount}}</p>
+                                <br>
+                                <br>
+                                <p id="small">Largest asteroid on this day: {{title}} </p>
+                                <br>
+                                <br>
+                                <p id="small">{{title}} has a max diamter of {{miles}} miles </p>
+                                <p id="smaller">(or known to the rest of the world as {{kilometers}} kilometers)</p>
+                                <br>
+                                <br>
+                                <p id="small">If you must leave your house, {{this.recommendation}} </p>
+                                <br>
+                                <br>
+                    </div>
+            </div>
+
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <br>
+    <section id="footer">
+        <div class="container">
+         <p>Disclaimer: Statements made on this site are 100% true...maybe</p>
+        </div>
+    </section>
+
+</div>
+</body>
+</html>
 
 
 
