@@ -1,18 +1,35 @@
 *{
   margin: 0;
   padding: 0;
+  
 }
+
+.body{
+  /* position: reltaive; */
+  background: url("projects/asteroid-app/src/assets/background.jpg");
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center;
+}
+
+#myForm{
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  display: inline;
+  color: white;
+ 
+}
+
 
 #header{
   position: absolute;
-  z-index: 10;
   height: 300px;
   width: 100%;
 }
 #footer{
   position: absolute;
   font-size: x-small;
-  z-index: 999;
   height: 13px;
   width: 100%;
   bottom: 0;
@@ -20,6 +37,8 @@
   color: white;
   text-align: center;
 }
+
+
 
 .navbar-custom{
   padding: 10px;
@@ -34,13 +53,7 @@
   align-items: center;
 }
 
-.main{
-  position: reltaive;
-  background: url("projects/asteroid-app/src/assets/background.jpg");
-  min-height: 100vh;
-  background-size: cover;
-  background-position: center;
-}
+  
 
 .main h1{
   color: white;
@@ -93,6 +106,7 @@
   border-radius: 25px;
   padding: 10px;
 }
+
 
 
 

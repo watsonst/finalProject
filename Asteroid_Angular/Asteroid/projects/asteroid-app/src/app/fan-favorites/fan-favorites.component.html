@@ -1,11 +1,11 @@
-<body>
-    <ul class="list">
+<body class="body">
+    <!-- <ul class="list">
         <li *ngFor="let fav of favorites">
             {{fav.date}} || {{fav.percentage}} || {{fav.quote}} || {{fav.recommendation}}
             <button type="button" (click)="updateFavorites(fav)" class="btn btn-primary">Upvotes {{fav.counter}}</button>
             
         </li>
-    </ul>
+    </ul> -->
     <section id="header">
         <div class="container-fluid">
             <nav class="navbar-custom">
@@ -31,21 +31,26 @@
                 </div>
             </div>
         </div>
-        <!-- <ul class="list">
-            <li *ngFor="let fav of favorites">
-                {{fav.date}} || {{fav.percentage}} || {{fav.quote}} || {{fav.recommendation}}
-                <button type="button" (click)="updateFavorites(fav)" class="btn btn-primary">Upvotes {{fav.counter}}</button>
-                
-            </li>
-        </ul> -->
 
+        <div class="list">
+            <ul>
+                <li *ngFor="let fav of favorites">
+                    {{fav.date}} || {{fav.percentage}} || {{fav.quote}} || {{fav.recommendation}}
+                    <button type="button" (click)="updateFavorites(fav)" class="btn btn-primary">Upvotes {{fav.counter}}</button>
+                
+                </li>
+             </ul>
+        </div>
+
+    
     </section>
 
     <section id="footer">
         <div class="container">
             <p>Disclaimer: Statements made on this site are 100% true...maybe</p>
         </div>
-</section>
+    </section>
 
+    
 
 </body>
