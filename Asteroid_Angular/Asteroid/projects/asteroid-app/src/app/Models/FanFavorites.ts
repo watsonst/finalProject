@@ -8,4 +8,3 @@ export class FanFavorites {
         public recommendation: String      
     ){}
 }
- 

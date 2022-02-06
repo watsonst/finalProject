@@ -6,7 +6,7 @@
         <div class="container-fluid">
             <nav class="navbar-custom">
                 <div class="container-header">
-                    <a class="nav-link center" href="{{linkToHome}}" >Is the sky falling?</a>
+                    <a class="nav-link left" href="{{linkToFanFavorites}}">Fan Favorites</a>
                 </div>
             </nav>
         </div>
@@ -82,6 +82,7 @@
                                 <h3>If you must leave your house, {{this.recommendation}} </h3>
                                 <br>
                                 <br>
+                                <h3>If you liked the quote or recommendation, click <button class="button" (click)="createFavorites()" type="btn btn-primary">here!</button></h3>
                             </div>
                     </div>
                 </div>

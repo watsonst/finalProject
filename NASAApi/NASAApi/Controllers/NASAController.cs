@@ -22,7 +22,7 @@ namespace NASAApi.Controllers
             double miles = 0;
 
 
-            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=zfIyJv5Ag1sf57TvPmnnkyMHS5KwkLZQR3veVXoQ";
             //var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
            
 
@@ -54,7 +54,7 @@ namespace NASAApi.Controllers
             double kilometers = 0;
 
 
-            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=zfIyJv5Ag1sf57TvPmnnkyMHS5KwkLZQR3veVXoQ";
             //var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
 
 
@@ -86,7 +86,7 @@ namespace NASAApi.Controllers
             string name = "";
             double miles = 0;
 
-            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+            var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=zfIyJv5Ag1sf57TvPmnnkyMHS5KwkLZQR3veVXoQ";
             //var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date=1991-04-15&end_date=1991-04-15&api_key=DEMO_KEY";
 
 
@@ -124,7 +124,7 @@ namespace NASAApi.Controllers
         {
             using (HttpClient client = new HttpClient())
             {
-                var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=DEMO_KEY";
+                var url = $"https://api.nasa.gov/neo/rest/v1/feed?start_date={finalDate}&end_date={finalDate}&api_key=zfIyJv5Ag1sf57TvPmnnkyMHS5KwkLZQR3veVXoQ";
 
                 var response = await client.GetAsync(url);
                 string responseJSON = await response.Content.ReadAsStringAsync();
