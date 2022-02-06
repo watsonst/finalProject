@@ -1,6 +1,5 @@
-export class FanFavorites {
+export class CreateFanFavoritesRequest {
     constructor(
-        public id: Number,
         public percentage: Number,
         public date: String, 
         public counter: Number,
