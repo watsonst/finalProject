@@ -103,6 +103,7 @@
 }
 
 .nav-link {
+  font-family: 'Press+Start+2P';
   color: white !important;
   text-decoration: none;
   font-size:  clamp(1rem, -3.1250rem + 18.3333vw, 6.5rem);
