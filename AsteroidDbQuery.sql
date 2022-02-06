@@ -18,27 +18,25 @@ create table FanFavorites(
 )
 
 insert into Quotes(Percentage, Quote, Recommendation)
-values('10', 'Test Quote', 'Test Recommendation');
-
+values('10', '', 'you should be ok, but keep in mind the chance is not 0');
 insert into Quotes(Percentage, Quote, Recommendation)
-values('20', 'Test two', 'Test rec two')
-
+values('20', '', 'eh why not ? You have made it this far.')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('30', 'Test three', 'Test rec three')
+values('30', '', 'be sure to bring your standard equipment, military grade hard hat !')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('40', 'Test four', 'Test rec four')
+values('40', '', 'just maybe keep your eyes to the sky so you can at least see it coming !')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('50', 'Test five', 'Test rec five')
+values('50', '', 'make sure you take your umbrella !')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('60', 'Test six', 'Test rec six')
+values('60', '', 'know you are living dangerously close to the edge.')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('70', 'Test seven', 'Test rec seven')
+values('70', '', 'ask yourself, are these errands really worth it ?')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('80', 'Test eight', 'Test rec eight')
+values('80', '', 'perhaps consider a lovely night in ?')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('90', 'Test nine', 'Test rec nine')
+values('90', '', 'call a priest, a witch, and get right with your creator, best of luck out there !')
 insert into Quotes(Percentage, Quote, Recommendation)
-values('100', 'Test ten', 'Test rec ten')
+values('100', '', 'don''t...')
 
 select * from Quotes
 
