@@ -11,11 +11,18 @@ create table Quotes(
 drop table if exists FanFavorites
 
 create table FanFavorites(
-	ID int primary key identity(1,1),
+	Id int primary key identity(1,1),
+	Percentage int foreign key references Quotes,
+	Counter int,
 	Date nvarchar(20),
-	Percentage int foreign key references dbo.Quotes(Percentage),
-	Counter int
+	Quote nvarchar(20),
+	Recommendation nvarchar(20)
 )
+
+insert into FanFavorites(Percentage, Counter, Date, Quote, Recommendation)
+values ('100', '1', '2022-02-06', 'test', 'test rec');
+
+
 
 insert into Quotes(Percentage, Quote, Recommendation)
 values('10', '', 'you should be ok, but keep in mind the chance is not 0');
@@ -41,9 +48,3 @@ values('100', '', 'don''t...')
 select * from Quotes
 
 select * from FanFavorites
-
-insert into FanFavorites(Date,Percentage,counter)
-values
-('2022-01-18', '100', '1'),
-('2022-01-26', '40', '2'),
-('1991-04-15', '20', '3');
