@@ -59,33 +59,33 @@
 <br>
 <br>
         <div class="container">
-                     <div class="card mx-auto" style="width: 50%;">
-                            <div class="card-body">
-                                <br>
-                                <br>
-                                <h3 id="med">Your Chance = {{this.percentage}} </h3>
-                                <br>
-                                <br>
-                                <p id="small">Number of current near earth objects: {{amount}}</p>
-                                <br>
-                                <br>
-                                <p id="small">Largest asteroid on this day: {{title}} </p>
-                                <br>
-                                <br>
-                                <p id="small">{{title}} has a max diamter of {{miles}} miles </p>
-                                <p id="smaller">(or known to the rest of the world as {{kilometers}} kilometers)</p>
-                                <br>
-                                <br>
-                                <p id="small">If you must leave your house, {{this.recommendation}} </p>
-                                <br>
-                                <br>
-                    </div>
+            <div class="card mx-auto" style="width: 50%;">
+                <div class="card-body">
+                    <br>
+                    <br>
+                    <h3 id="med">Your Chance = {{this.percentage}}% </h3>
+                    <br>
+                    <br>
+                    <p id="small">Number of current near earth objects: {{amount}}</p>
+                    <br>
+                    <br>
+                    <p id="small">Largest asteroid on this day: {{title}} </p>
+                    <br>
+                    <br>
+                    <p id="small">{{title}} has a max diamter of {{miles}} miles </p>
+                    <p id="smaller">(or known to the rest of the world as {{kilometers}} kilometers)</p>
+                    <br>
+                    <br>
+                    <p id="small">If you must leave your house, {{this.recommendation}} </p>
+                    <br>
+                    <br>
+                    <button class="button2" (click)="createFavorites()" type="btn btn-primary">Add to Fan Favorites</button>
+                    <a href="{{linkToFanFavorites}}"><button class="button2" type="btn btn-primary">View Fan Favorites</button></a>
+                </div>
             </div>
-
+        
         </div>
     </section>
-    <br>
-    <br>
     <br>
     <br>
     <section id="footer">
@@ -97,4 +97,3 @@
 </div>
 </body>
 </html>
-<h3>If you liked the quote or recommendation, click <button class="button" (click)="createFavorites()" type="btn btn-primary">here!</button></h3>
