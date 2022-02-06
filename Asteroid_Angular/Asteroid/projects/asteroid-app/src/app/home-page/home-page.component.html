@@ -1,4 +1,7 @@
-<body>
+<body class="body">
+
+   
+
     <section id="header">
         <div class="container-fluid">
             <nav class="navbar-custom">
@@ -8,12 +11,9 @@
             </nav>
         </div>
     </section>
+   
 
-    <section id="footer">
-        <div class="container">
-            <p>Disclaimer: Statements made on this site are 100% true...maybe</p>
-        </div>
-</section>
+
 
     <section class="main">
         <div class="container">
@@ -28,27 +28,37 @@
                     <br>
                     <p> Will you be hit by an asteroid today?</p>
                     <br>
-                    <p id="p2">Check your fate:</p>
+                    <!-- <p id="p2">Check your fate:</p> -->
                 </div>
             </div>
         </div>
+        <br>
+        <br>
+       
 
-   
+        <div class="container" id="myForm" style="text-align:center">
+            <div class="row">
+                <div class="col-4">
+                    <div class="form-inline">
+                        <label>Year:</label>
+                        <input type="text" maxlength="4" required pattern="\d" [(ngModel)]="dateYYYY">
+                        <label>Month: </label>
+                        <input type="text" maxlength="2" required pattern="\d" onchange="if(this.value.length < 2) this.value = '0' + this.value;" [(ngModel)]="dateMM">
+                        <label>Day: </label>
+                        <input type="text" maxlength="2" required pattern="\d" onchange="if(this.value.length < 2) this.value = '0' + this.value;" [(ngModel)]="dateDD">
+                        <br>
+                        <br>
+                        <button (click)="getFinalDate()">Check Your Fate</button>
+                    </div>
+                </div>   
+            </div>  
+              
+        </div>
 
-
-
 <br>
 <br>
 <br>
 <br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-
-
         <div class="container">
             <div class="row">
                 <div class="col-8 col-lg-4 col-xl-3">
@@ -76,6 +86,16 @@
                     </div>
                 </div>
             </div>
+        </div>
+   
+
+    
+
+    </section>
+
+    <section id="footer">
+        <div class="container">
+         <p>Disclaimer: Statements made on this site are 100% true...maybe</p>
         </div>
     </section>
 

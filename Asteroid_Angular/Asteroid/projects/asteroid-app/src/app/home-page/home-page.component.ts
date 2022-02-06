@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 import { NASAApiService } from '../services/nasa-api.service';
 import { Asteroids } from '../Models/Asteroids';
@@ -8,6 +8,8 @@ import { Quote, templateJitUrl } from '@angular/compiler';
 import { FanFavorites } from '../Models/FanFavorites';
 import { FanFavoritesService } from '../services/fan-favorites.service';
 import { OurNasaApiService } from '../services/our-nasa-api.service';
+import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
 
 @Component({
   selector: 'app-home-page',
@@ -16,29 +18,28 @@ import { OurNasaApiService } from '../services/our-nasa-api.service';
 })
 export class HomePageComponent implements OnInit {
 
-  asteroids: any
-  input: Number = 0
-  tempQuote: Quotes
-  quotesList: Quotes[] = []
-  singlequote: Quotes
+  asteroids: any;
+  input: Number = 0;
+  tempQuote: Quotes;
+  quotesList: Quotes[] = [];
+  singlequote: Quotes;
 
-  percentage: Number = 0
-  quote: String = ""
-  recommendation: String = ""
+  percentage: Number = 0;
+  quote: String = "";
+  recommendation: String = "";
 
-  dateYYYY: Number = 0
-  dateMM: Number = 0
-  dateDD: Number = 0
-  counter: Number = 0
+  counter: Number = 0;
 
   //finalDate: String = `${this.dateYYYY}-${this.dateMM}-${this.dateDD}`
-  finalDate: String = "2022-01-18"
-  miles: Number = 0
-  kilometers: Number = 0
-  title: any
-  amount:Number = 0
+  finalDate: String = "";
+  miles: Number = 0;
+  kilometers: Number = 0;
+  title: any;
+  amount:Number = 0;
 
   linkToHome: String = '#';
+
+  @Input() dateYYYY: String = ""; dateMM: String = ""; dateDD: String = "";
 
   constructor(
     private httpClient: HttpClient,
@@ -59,10 +60,10 @@ export class HomePageComponent implements OnInit {
     //this.tempQuote = new Quotes(0,"","");
     //console.log(this.tempQuote)
     // this.getNumberOfAsteroids(this.calculateChance,this.quotesAPISvc);
-    this.calculateChance();
+    //this.calculateChance();
     //this.percentageMatch();
     this.linkToHome = `/home`
-
+    this.getFinalDate();
   }
 
   getAsteroids(){
