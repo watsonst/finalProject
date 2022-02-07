@@ -27,7 +27,9 @@
                     <br>
                     <br>
                     <br>
-                    <h1>Fan Favorites</h1>
+                    <p>Fan Favorites</p>
+                    <br>
+                    <br>
                 </div>
             </div>
         </div>
@@ -36,12 +38,14 @@
             <div class="card mx-auto" style="width: 80%;">
                 <div class="card-body">
                     <div class="list">
+                        <br>
+                        <br>
                         <tr *ngFor="let fav of favorites">
                             <td style="width:15%">{{fav.date}}</td>
                             <td style="width:10%">{{fav.percentage}}%</td>
                             <td style="width:60%">If you must leave your house, {{fav.recommendation}}</td>
-                            <td style="width:15%"><button class="button2" (click)="updateFavorites(fav)">Upvotes
-                            {{fav.counter}}</button></td>
+                            <td style="width:20%"><button class="button2" (click)="updateFavorites(fav)" type="btn btn-primary">Upvotes {{fav.counter}}</button></td>
+                            <td style="width:20%"><button class="button2" (click)="deleteFavorite(fav.id)" type="btn btn-primary">Remove</button></td>
                             <br>
                             <br>
                             <br>
