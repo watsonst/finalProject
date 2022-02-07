@@ -50,6 +50,7 @@ export class FanFavoritesComponent implements OnInit {
   }
 
   deleteFavorite(id: Number){
+    console.log(id)
     this.favoriteAPISvc.deleteFavorite(id).subscribe()
       window.location.reload()
     }

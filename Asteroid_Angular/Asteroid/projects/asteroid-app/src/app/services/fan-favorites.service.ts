@@ -31,7 +31,7 @@ export class FanFavoritesService {
   }
 
   deleteFavorite(id: Number): Observable<unknown> {
-     return this.httpClient.delete(`https://localhost:44339/FanFavorites/delete?${id}`)
+     return this.httpClient.delete(`https://localhost:44339/FanFavorites/delete?ID=${id}`)
   }
 
 }
