@@ -75,7 +75,7 @@
 } 
 
 .button {
-  font-family: 'Open Sans', sans-serif;
+  /* font-family: 'Open Sans', sans-serif; */
   transition-duration: 0.4s;
   background: transparent;
   color: white;
