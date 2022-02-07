@@ -98,10 +98,37 @@
   padding: 10px;
 }
 
+
+.card{
+  position: relative;
+  background-color: black;
+  margin: auto;
+  background: rgba(0, 0, 0, 0.4);
+  border-radius: 25px;
+  padding: 10px;
+  
+}
+
 .list{
   font-family: 'Open Sans', sans-serif;
   position: relative;
   color: white;
   text-align: center;
   z-index: 200;
+}
+
+.button2 {
+  transition-duration: 0.4s;
+  background: transparent !important;
+  color: white;
+  font-size: 10pt;
+  border-radius: 8px;
+  padding: 10px;
+  border: 2px solid white;
+  text-align: center;
+}
+
+.button2:hover {
+  background-color:rgba(0, 0, 0, 0.5);
+  color: white;
 }

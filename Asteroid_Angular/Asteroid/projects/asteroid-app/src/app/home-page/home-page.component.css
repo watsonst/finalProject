@@ -195,6 +195,10 @@
   
 }
 
+.card-body{
+  text-align: center;
+}
+
 
 #footer{
   position: relative;
