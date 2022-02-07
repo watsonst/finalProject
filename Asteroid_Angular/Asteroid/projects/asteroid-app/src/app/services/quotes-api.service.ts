@@ -15,4 +15,8 @@ export class QuotesApiService {
   getQuotes(): Observable<Quotes[]>{
     return this.httpClient.get<Quotes[]>("https://localhost:44339/Quotes/list")
   }
+
+
+
+  
 }
