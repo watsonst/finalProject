@@ -34,6 +34,7 @@
 }
 
 .nav-link {
+  font-family: 'Montserrat', sans-serif;
   color: white !important;
   text-decoration: none;
   font-size:  clamp(1rem, -3.1250rem + 18.3333vw, 6.5rem);
@@ -43,11 +44,13 @@
 
 
 .main h1{
+  font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
   font-size: clamp(1rem, -1.6250rem + 11.6667vw, 4.5rem);
 }
 .main p{
+  font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
   font-size: clamp(1rem, -0.1250rem + 5.0000vw, 2.5rem);
@@ -67,6 +70,7 @@
 }
 
 .main h3{
+  font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
 }
@@ -106,6 +110,7 @@
 }
 
 .list{
+  font-family: 'Open Sans', sans-serif;
   position: relative;
   color: white;
   text-align: center;
