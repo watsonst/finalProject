@@ -2,7 +2,6 @@
   margin: 0;
   padding: 0;
 }
-
 .body{
   /* position: reltaive; */
   background: url("projects/asteroid-app/src/assets/background.jpg");
@@ -10,7 +9,6 @@
   background-size: cover;
   background-position: center;
 }
-
 #header{
   position: absolute;
   z-index: 10;
@@ -27,12 +25,10 @@
   color: white;
   text-align: center;
 }
-
 .navbar-custom{
   padding: 10px;
   text-align: center;
 }
-
 .nav-link {
   font-family: 'Montserrat', sans-serif;
   color: white !important;
@@ -41,55 +37,12 @@
   justify-content: center;
   align-items: center;
 }
-
-
-.main h1{
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  text-align: center;
-  font-size: clamp(1rem, -1.6250rem + 11.6667vw, 4.5rem);
-}
 .main p{
   font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
   font-size: clamp(1rem, -0.8750rem + 8.3333vw, 3.5rem);
 }
-
-#p2{
-  color: white;
-  text-align: center;
-  font-size: x-large;
-
-}
-
-.main h2{
-  color: white;
-  text-align: center;
-  font-size: clamp(1rem, -0.8750rem + 8.3333vw, 3.5rem);
-}
-
-.main h3{
-  font-family: 'Montserrat', sans-serif;
-  color: white;
-  text-align: center;
-}
-.main h4{
-  color: white;
-  text-align: center;
-}
-
-.main h5{
-  color: white;
-  text-align: center;
-}
-
-#small{
-  color: white;
-  font-size: medium;
-  text-align: center;
-}
-
 .card{
   background-color: black;
   margin: auto;
@@ -98,12 +51,9 @@
   padding: 10px;
   text-align: center;
 }
-
 .card-body{
   text-align: center;
 }
-
-
 .list{
   font-family: 'Open Sans', sans-serif;
   position: relative;
@@ -112,9 +62,6 @@
   margin-right: auto;
   z-index: 200;
 }
-
-
-
 .button2 {
   transition-duration: 0.4s;
   background: transparent !important;
@@ -125,8 +72,7 @@
   border: 2px solid white;
   text-align: center;
 }
-
-.button2{
+.button2:hover{
   background-color:rgba(0, 0, 0, 0.5);
   color: white;
 }

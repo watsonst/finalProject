@@ -3,11 +3,9 @@
   padding: 0;
   
 }
-
 .body{
   position: relative;
 }
-
 .background-image{
   position: relative;
   background: url("projects/asteroid-app/src/assets/background.jpg");
@@ -18,7 +16,6 @@
   background-size: cover;
   margin: 0;
 }
-
 #myForm{
   font-family: 'Open Sans', sans-serif;
   text-align: center;
@@ -28,12 +25,10 @@
   color: white;
  
 }
-
 .label{
   color: white;
   font-size: 20pt;
 }
-
 .input4 {
   display: inline;
   margin: .5em auto;
@@ -52,7 +47,6 @@
 .input4, select, textarea{
   color: dodgerblue;
 } 
-
 .input2 {
   display: inline;
   margin: .5em auto;
@@ -71,7 +65,6 @@
 .input2, select, textarea{
   color: dodgerblue;
 } 
-
 .button {
   font-family: 'Open Sans', sans-serif;
   transition-duration: 0.4s;
@@ -82,12 +75,10 @@
   padding: 10px;
   border: 2px solid white;
 }
-
 .button:hover {
   background-color:rgba(0, 0, 0, 0.4);
   color: white;
 }
-
 .button2 {
   transition-duration: 0.4s;
   background: transparent;
@@ -98,7 +89,6 @@
   border: 2px solid white;
   text-align: center;
 }
-
 .button2:hover {
   background-color:rgba(0, 0, 0, 0.4);
   color: white;
@@ -109,13 +99,10 @@
   height: 300px;
   width: 100%;
 }
-
-
 .navbar-custom{
   padding: 10px;
   text-align: center;
 }
-
 .nav-link {
   font-family: 'Montserrat', sans-serif;
   color: white !important;
@@ -124,67 +111,32 @@
   justify-content: center;
   align-items: center;
 }
-
-  
-
-.main h1{
-  color: white;
-  text-align: center;
-  font-size: clamp(1rem, -1.6250rem + 11.6667vw, 4.5rem);
-}
 .main p{
   font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
   font-size: clamp(1rem, -0.1250rem + 5.0000vw, 2.5rem);
 }
-
-#p2{
-  color: white;
-  text-align: center;
-  font-size: x-large;
-
-}
-
-.main h2{
-  color: white;
-  text-align: center;
-  font-size: clamp(1rem, -0.8750rem + 8.3333vw, 3.5rem);
-}
-
 .main h3{
   font-family: 'Montserrat', sans-serif;
   color: white;
   text-align: center;
 }
-.main h4{
-  color: white;
-  text-align: center;
-}
-
-.main h5{
-  color: white;
-  text-align: center;
-}
-
 #small{
   color: white;
   font-size: medium;
   text-align: center;
 }
-
 #smaller{
   color: white;
   font-size: small;
   text-align: center;
 }
-
 #med{
   color: white;
   font-size: 30pt;
   text-align: center;
 }
-
 .card{
   position: relative;
   background-color: black;
@@ -192,14 +144,10 @@
   background: rgba(0, 0, 0, 0.4);
   border-radius: 25px;
   padding: 10px;
-  
 }
-
 .card-body{
   text-align: center;
 }
-
-
 #footer{
   position: relative;
   font-size: x-small;
@@ -207,32 +155,3 @@
   text-align: center;
   color: white;
 }
-
-
-
-
-/* .navbar-custom{
-  background: transparent !important;
-  height:100px;
-}
-
-.nav-link {
-  color: white;
-  text-decoration: none;
-  text-align: center;
-}
-
-.background-image {
-    background-image: url("projects/asteroid-app/src/assets/background.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: center;
-    background-size: cover;
-    height: 100vh;
-    margin: -21px 0px 0px 0px;
-    padding: 0px 0px 0px 0px;
-
-   
-  }
- */
-
