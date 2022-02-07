@@ -15,8 +15,8 @@ create table FanFavorites(
 	Percentage int foreign key references Quotes,
 	Counter int,
 	Date nvarchar(20),
-	Quote nvarchar(20),
-	Recommendation nvarchar(20)
+	Quote nvarchar(200),
+	Recommendation nvarchar(200)
 )
 
 insert into FanFavorites(Percentage, Counter, Date, Quote, Recommendation)

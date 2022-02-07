@@ -53,21 +53,8 @@ export class HomePageComponent implements OnInit {
   ) {this.tempQuote = new Quotes(0,"",""), this.singlequote = new Quotes(0, "", "");}
 
   ngOnInit(): void {
-    //this.getMiles();
-    //this.getKilometers()
-    //this.getName()
-    //this.getCount()
-    // this.getNames();
-    // this.getHazard();
-    //this.getQuotes();
-    //this.tempQuote = new Quotes(0,"","");
-    //console.log(this.tempQuote)
-    // this.getNumberOfAsteroids(this.calculateChance,this.quotesAPISvc);
-    //this.calculateChance();
-    //this.percentageMatch();
     this.linkToHome = `/home`
     this.linkToFanFavorites = `/fanfavorites`
-    //this.getFinalDate();
   }
 
 
@@ -170,12 +157,18 @@ export class HomePageComponent implements OnInit {
     return createFFR
   }
 
+  showCard(){
+    let T: any = document.getElementById("my-card")
+    T.style.display = "block"
+  }
+
   getFinalDate(): String{
     let finalDate:String = this.dateYYYY + "-" + this.dateMM + "-" + this.dateDD
     this.getMiles(finalDate)
     this.getKilometers(finalDate)
     this.getName(finalDate)
     this.getCount(finalDate)
+    this.showCard()
     return finalDate
   }
 }

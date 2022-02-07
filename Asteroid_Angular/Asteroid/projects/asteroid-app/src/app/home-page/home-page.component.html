@@ -58,7 +58,7 @@
 <br>
 <br>
 <br>
-        <div class="container">
+        <div class="container" id="my-card" style="display:none">
             <div class="card mx-auto" style="width: 50%;">
                 <div class="card-body">
                     <br>
@@ -79,7 +79,7 @@
                     <p id="small">If you must leave your house, {{this.recommendation}} </p>
                     <br>
                     <br>
-                    <button class="button2" (click)="createFavorites()" type="btn btn-primary">Add to Fan Favorites</button>
+                    <a href="{{linkToFanFavorites}}"><button class="button2" (click)="createFavorites()" type="btn btn-primary">Add to Fan Favorites</button></a>
                     <a href="{{linkToFanFavorites}}"><button class="button2" type="btn btn-primary">View Fan Favorites</button></a>
                 </div>
             </div>
