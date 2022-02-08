@@ -39,11 +39,13 @@ namespace Asteroid_API.Controllers
         public async Task<IActionResult> CreateFav([Bind("Date, Percentage, Counter, Quote, Recommendation")] FanFavorites favorite)
         {
             bool check = false;
+            FanFavorites blank = new FanFavorites();
             var favs = await _context.FanFavorites.ToListAsync();
             foreach (FanFavorites fav in favs)
             {
                 if(fav.Date == favorite.Date)
                 {
+                    blank = fav;
                     check = true;
                 }
             }
@@ -59,7 +61,10 @@ namespace Asteroid_API.Controllers
             }
             else
             {
-                await UpdateFav(favorite);
+                blank.Counter++;
+                _context.Update(blank);
+                _context.SaveChanges();
+
                 var result = new OkObjectResult(favorite);
                 return result;
             }
@@ -72,7 +77,7 @@ namespace Asteroid_API.Controllers
         {
             favorite.Counter++;
             _context.Update(favorite);
-            await _context.SaveChangesAsync();
+            _context.SaveChanges();
 
             var result = new OkObjectResult(favorite);
             return result;

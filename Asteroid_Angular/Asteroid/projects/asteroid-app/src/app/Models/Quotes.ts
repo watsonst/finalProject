@@ -16,7 +16,5 @@ export class Quotes {
     getRec(){
         return this.recommendation
     }
-
-
 }
  

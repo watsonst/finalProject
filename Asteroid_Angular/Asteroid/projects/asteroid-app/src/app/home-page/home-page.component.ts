@@ -1,15 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { HttpClient } from "@angular/common/http";
-import { NASAApiService } from '../services/nasa-api.service';
-import { Asteroids } from '../Models/Asteroids';
 import { QuotesApiService } from '../services/quotes-api.service';
 import { Quotes } from '../Models/Quotes';
-import { Quote, templateJitUrl } from '@angular/compiler';
-import { FanFavorites } from '../Models/FanFavorites';
 import { FanFavoritesService } from '../services/fan-favorites.service';
 import { OurNasaApiService } from '../services/our-nasa-api.service';
-import { FormsModule } from '@angular/forms';
-import { NgModule } from '@angular/core';
 import { CreateFanFavoritesRequest } from '../Models/CreateFanFavRequest';
 
 @Component({
@@ -32,7 +25,6 @@ export class HomePageComponent implements OnInit {
 
   counter: Number = 0;
 
-  //finalDate: String = `${this.dateYYYY}-${this.dateMM}-${this.dateDD}`
   finalDate: String = "";
   miles: Number = 0;
   kilometers: Number = 0;
@@ -45,8 +37,6 @@ export class HomePageComponent implements OnInit {
   @Input() dateYYYY: String = ""; dateMM: String = ""; dateDD: String = "";
 
   constructor(
-    private httpClient: HttpClient,
-    private NASAAPISvc: NASAApiService,
     private quotesAPISvc: QuotesApiService,
     private favoritesAPISvc: FanFavoritesService,
     private ourNasaAPISvc: OurNasaApiService
@@ -55,15 +45,6 @@ export class HomePageComponent implements OnInit {
   ngOnInit(): void {
     this.linkToHome = `/home`
     this.linkToFanFavorites = `/fanfavorites`
-  }
-
-
-  getAsteroids(){
-    this.NASAAPISvc.getAsteroids().subscribe((Asteroids) => {
-      //console.log("[INFO]")
-      console.log(Asteroids);
-      
-    })
   }
 
  getQuotes(){
@@ -96,10 +77,7 @@ export class HomePageComponent implements OnInit {
         } else if (this.amount>= 13) {
         tempQuote.percentage = 100;
       }
-    
-
     console.log(tempQuote)      
-
 
     this.quotesAPISvc.getQuotes().subscribe((Quotes) => {
     this.quotesList = Quotes

@@ -30,13 +30,6 @@ export class FanFavoritesComponent implements OnInit {
     })
   }
 
-  // createFavorites(favorite: FanFavorites){
-  //   this.favoriteAPISvc.createFavorite(favorite).subscribe((newFav)=> {
-  //     console.log("[INFO]")
-  //     console.log(newFav)
-  //   })
-  // }
-
   updateFavorites(favorite: FanFavorites){
     this.favoriteAPISvc.updateFavorite(favorite).subscribe((favorites) => {
       console.log(["update"])
