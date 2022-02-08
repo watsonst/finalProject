@@ -9,15 +9,9 @@ import { CreateFanFavoritesRequest } from '../Models/CreateFanFavRequest';
 })
 export class FanFavoritesService {
   
-
   constructor(
     private httpClient: HttpClient
   ) { }
-
-
-
-
-
   getFavorites(): Observable<FanFavorites[]>{
     return this.httpClient.get<FanFavorites[]>("https://localhost:44339/FanFavorites/favlist")
   }
@@ -33,5 +27,4 @@ export class FanFavoritesService {
   deleteFavorite(id: Number): Observable<unknown> {
      return this.httpClient.delete(`https://localhost:44339/FanFavorites/delete?ID=${id}`)
   }
-
 }
