@@ -12,18 +12,18 @@ export class OurNasaApiService {
   ) {}
 
     getMiles(finalDate: String): Observable<any>{
-      return this.httpClient.get(`https://localhost:44373/NASA/miles?finalDate=${finalDate}`)
+      return this.httpClient.get(`https://nasaistheskyfalling.azurewebsites.net/NASA/miles?finalDate=${finalDate}`)
     }
 
     getKilometers(finalDate: String): Observable<any>{
-      return this.httpClient.get(`https://localhost:44373/NASA/kilometers?finalDate=${finalDate}`)
+      return this.httpClient.get(`https://nasaistheskyfalling.azurewebsites.net/NASA/kilometers?finalDate=${finalDate}`)
     }
 
     getName(finalDate: String): Observable<any>{
-      return this.httpClient.get(`https://localhost:44373/NASA/name?finalDate=${finalDate}`)
+      return this.httpClient.get(`https://nasaistheskyfalling.azurewebsites.net/NASA/name?finalDate=${finalDate}`)
     }
 
     getCount(finalDate: String): Observable<any>{
-      return this.httpClient.get(`https://localhost:44373/NASA/count?finalDate=${finalDate}`)
+      return this.httpClient.get(`https://nasaistheskyfalling.azurewebsites.net/NASA/count?finalDate=${finalDate}`)
     }
 }

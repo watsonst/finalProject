@@ -12,5 +12,6 @@
     <WebStackScaffolding_DbContextTypeFullName>Asteroid_API.Data.Asteroid_APIContext</WebStackScaffolding_DbContextTypeFullName>
     <WebStackScaffolding_IsAsyncSelected>False</WebStackScaffolding_IsAsyncSelected>
     <WebStackScaffolding_IsViewGenerationSelected>True</WebStackScaffolding_IsViewGenerationSelected>
+    <NameOfLastUsedPublishProfile>C:\Users\me\source\repos\finalProject\Asteroid_API\Asteroid_API\Properties\PublishProfiles\istheskyfalling - Web Deploy.pubxml</NameOfLastUsedPublishProfile>
   </PropertyGroup>
 </Project>
