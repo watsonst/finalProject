@@ -13,7 +13,7 @@ export class QuotesApiService {
   ) { }
 
   getQuotes(): Observable<Quotes[]>{
-    return this.httpClient.get<Quotes[]>("https://localhost:44339/Quotes/list")
+    return this.httpClient.get<Quotes[]>("https://istheskyfalling.azurewebsites.net//Quotes/list")
   }
 
 

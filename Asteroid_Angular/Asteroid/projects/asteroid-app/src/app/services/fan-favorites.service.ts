@@ -13,18 +13,18 @@ export class FanFavoritesService {
     private httpClient: HttpClient
   ) { }
   getFavorites(): Observable<FanFavorites[]>{
-    return this.httpClient.get<FanFavorites[]>("https://localhost:44339/FanFavorites/favlist")
+    return this.httpClient.get<FanFavorites[]>("https://istheskyfalling.azurewebsites.net/FanFavorites/favlist")
   }
 
   createFavorite(favorite: CreateFanFavoritesRequest): Observable<FanFavorites> {
-    return this.httpClient.post<FanFavorites>("https://localhost:44339/FanFavorites/newfav", favorite)
+    return this.httpClient.post<FanFavorites>("https://istheskyfalling.azurewebsites.net/FanFavorites/newfav", favorite)
   }
 
   updateFavorite(favorite: FanFavorites): Observable<FanFavorites> {
-    return this.httpClient.put<FanFavorites>("https://localhost:44339/FanFavorites/updatefav", favorite)
+    return this.httpClient.put<FanFavorites>("https://istheskyfalling.azurewebsites.net/updatefav", favorite)
   }
 
   deleteFavorite(id: Number): Observable<unknown> {
-     return this.httpClient.delete(`https://localhost:44339/FanFavorites/delete?ID=${id}`)
+     return this.httpClient.delete(`https://istheskyfalling.azurewebsites.net/FanFavorites/delete?ID=${id}`)
   }
 }
