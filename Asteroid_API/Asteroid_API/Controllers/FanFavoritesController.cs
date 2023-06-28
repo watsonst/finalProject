@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using Asteroid_API.Data;
 using Asteroid_API.Models;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Asteroid_API.Controllers
 {
@@ -84,10 +85,10 @@ namespace Asteroid_API.Controllers
         }
 
         [HttpDelete]
-        [Route("Delete")]
+        [Route("Delete/{id}")]
         public async Task<IActionResult> DeleteFavorite(int ID)
         {
-            var selectID = await _context.FanFavorites.FirstOrDefaultAsync(m => m.ID == ID);
+            var selectID = await _context.FanFavorites.FindAsync(ID);
 
             if(selectID == null)
             {
@@ -97,8 +98,7 @@ namespace Asteroid_API.Controllers
             _context.FanFavorites.Remove(selectID);
             await _context.SaveChangesAsync();
 
-            var result = new OkObjectResult(selectID);
-            return result;
+            return NoContent();
         }
 
     }

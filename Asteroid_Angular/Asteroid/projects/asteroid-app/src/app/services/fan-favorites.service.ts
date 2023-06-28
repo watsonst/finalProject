@@ -8,7 +8,7 @@ import { CreateFanFavoritesRequest } from '../Models/CreateFanFavRequest';
   providedIn: 'root'
 })
 export class FanFavoritesService {
-  
+  apiDeleteUrl = 'https://istheskyfalling.azurewebsites.net/FanFavorites';
   constructor(
     private httpClient: HttpClient
   ) { }
@@ -25,6 +25,6 @@ export class FanFavoritesService {
   }
 
   deleteFavorite(id: Number): Observable<unknown> {
-     return this.httpClient.delete(`https://istheskyfalling.azurewebsites.net/FanFavorites/delete?ID=${id}`)
+     return this.httpClient.delete<FanFavorites>(this.apiDeleteUrl + '/delete/' + id)
   }
 }
